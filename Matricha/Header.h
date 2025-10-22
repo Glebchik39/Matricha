@@ -11,6 +11,7 @@ public:
 	void InitMatricha();
 	int GetRols();
 	int GetCols();
+	void MinMax();
 	//T* GetPtr();
 	int operator+=(int number);
 	int operator-=(int number);
@@ -93,6 +94,30 @@ inline int Matricha<T>::GetCols()
 }
 
 template<typename T>
+inline void Matricha<T>::MinMax()
+{
+	int min = 0;
+	int max = 15;
+	for (size_t i = 0; i < rols; i++)
+	{
+		for (size_t k = 0; k < rols; k++)
+		{
+			if (ptr[i][k] > min)
+			{
+				min = ptr[i][k];
+				
+			}
+			if(ptr[i][k] < max)
+			{
+				max = ptr[i][k];
+			}
+		}
+	}
+	cout << " Max: " << min;
+	cout << " min: " << max;
+}
+
+template<typename T>
 inline int Matricha<T>::operator+=(int number)
 {
 	cout << "+:\n";
@@ -162,24 +187,7 @@ inline int Matricha<T>::operator/=(int number)
 
 
 
-//template<typename T>
-//inline T* Matricha<T>::GetPtr()
-//{
-//	return ptr;
-//}
 
-
-//template<class T>
-//ostream& operator<<(ostream& os, Matricha<T>& obj)
-//{
-//	for (size_t i = 0; i < obj.GetRols(); i++)
-//	{
-//		for (size_t k = 0; k < obj.GetCols(); k++)
-//		{
-//			os << obj.GetPtr()[i][k] << "\t";
-//		}
-//	}
-//}
 
 
 

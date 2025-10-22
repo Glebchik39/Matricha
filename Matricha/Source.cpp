@@ -35,4 +35,5 @@ int main()
 	Matricha<int>k;
 	k.InitMatricha();
 	k.Print();
+	k.MinMax();
 }
