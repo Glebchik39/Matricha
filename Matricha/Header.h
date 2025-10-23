@@ -6,17 +6,20 @@ class Matricha
 {
 public:
 	void Init();
+	Matricha(int r, int c, const T& value);
 	~Matricha();
 	void Print();
 	void InitMatricha();
 	int GetRols();
 	int GetCols();
 	void MinMax();
-	//T* GetPtr();
+	T* GetPtr();
 	int operator+=(int number);
 	int operator-=(int number);
 	int operator*=(int number);
 	int operator/=(int number);
+
+
 private:
 	int rols = 3;
 	int cols = 5;
@@ -38,6 +41,24 @@ inline void Matricha<T>::Init()
 	}
 
 }
+
+
+template<typename T>
+Matricha<T>::Matricha(int r, int c, const T& value) {
+	rols = r;
+	cols = c;
+	ptr = new T * [rols];
+	for (int i = 0; i < rols; i++) {
+		ptr[i] = new T[cols];
+		for (int j = 0; j < cols; j++) {
+			ptr[i][j] = value; // Заполняем матрицу значением value
+		}
+	}
+}
+
+
+
+
 
 
 
@@ -118,6 +139,12 @@ inline void Matricha<T>::MinMax()
 }
 
 template<typename T>
+inline T* Matricha<T>::GetPtr()
+{
+	return *ptr;
+}
+
+template<typename T>
 inline int Matricha<T>::operator+=(int number)
 {
 	cout << "+:\n";
@@ -181,6 +208,91 @@ inline int Matricha<T>::operator/=(int number)
 }
 
 
+
+
+
+
+
+class Point
+{
+	int x;
+	int y;
+
+
+public:
+	Point() {
+		x = 0;
+		y = 0;
+	}
+	Point(int x1, int y1)
+	{
+		x = x1;
+		y = y1;
+
+	}
+	Point operator+=(int value) {
+		x += value;
+		y += value;
+		return *this;
+	}
+
+
+	Point operator-=(int value) {
+		x -= value;
+		y -= value;
+		return *this;
+	}
+
+
+	Point operator*=(int value) {
+		x *= value;
+		y *= value;
+		return *this;
+	}
+
+	Point operator/=(int value) {
+		x /= value;
+		y /= value;
+		return *this;
+	}
+
+
+
+	int& GetX()
+	{
+		return x;
+	}
+
+	int& GetY()
+	{
+		return y;
+	}
+
+
+
+	//Point operator+=(Point& obj)
+	//{
+	//	obj.x += x;
+	//	obj.y += y;
+	//}
+	
+
+};
+
+ostream& operator<<(ostream& os, Point& obj)
+{
+	os <<" x: " << obj.GetX();
+	os << " y: " << obj.GetY();
+	return os;
+}
+
+
+istream& operator>>(istream& is, Point& obj)
+{
+	is >> obj.GetX();
+	is >> obj.GetY();
+	return is;
+}
 
 
 

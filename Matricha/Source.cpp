@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-	srand(unsigned(time(0)));
+	/*srand(unsigned(time(0)));
 	Matricha<int>b;
 	b.Init();
 	b.Print();
@@ -35,5 +35,24 @@ int main()
 	Matricha<int>k;
 	k.InitMatricha();
 	k.Print();
-	k.MinMax();
+	k.MinMax();*/
+
+	Matricha<Point> obj(4, 5, Point(2, 3));
+	obj.InitMatricha();
+	obj += 5;
+	cout << endl;
+	obj -= 5;
+	cout << endl;
+	obj *= 5;
+	cout << endl;
+	obj /= 5;
+	cout << endl;
+	obj.Print();
+
+	cout << endl;
+
+
 }
+
+
+
