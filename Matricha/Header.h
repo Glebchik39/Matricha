@@ -51,7 +51,7 @@ Matricha<T>::Matricha(int r, int c, const T& value) {
 	for (int i = 0; i < rols; i++) {
 		ptr[i] = new T[cols];
 		for (int j = 0; j < cols; j++) {
-			ptr[i][j] = value; // Заполняем матрицу значением value
+			ptr[i][j] = value; 
 		}
 	}
 }
